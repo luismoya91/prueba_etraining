@@ -17,8 +17,8 @@ class Api_settingsTableSeeder extends Seeder
     {
         Api_settings::truncate();
 
-        $api_token = "$2y$10$U54AVkcMA5HrkVf2WUZrhuMnwaFoOA1FV8zAEeL956pHTxiLWAuIm";
-        $api_key = "$2y$10$LRyUsiLNnQQzuo8t9lkJlukE5SXisBS7wW5v7.8s4HJlqAaT3aWMO";
+        $api_token = '$2y$10$U54AVkcMA5HrkVf2WUZrhuMnwaFoOA1FV8zAEeL956pHTxiLWAuIm';
+        $api_key = '$2y$10$LRyUsiLNnQQzuo8t9lkJlukE5SXisBS7wW5v7.8s4HJlqAaT3aWMO';
 
         Api_settings::create([
             'api_name' => 'Prueba_Etraining',

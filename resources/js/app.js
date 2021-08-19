@@ -382,7 +382,7 @@ import Swal from 'sweetalert2'
 
 })(jQuery);
 
-if(window.location.href === "https://localhost/prueba_etraining/public/home"){
+if(window.location.href === "https://localhost/prueba_etraining/public/home" || window.location.href === "http://localhost/prueba_etraining/public/home"){
     $.fn.getAllCarpetas("carpetas_list");
     $.fn.getAllCarpetas("subcarpetas_list","subcarpetas");
     $.fn.setActionAddCarpeta();
