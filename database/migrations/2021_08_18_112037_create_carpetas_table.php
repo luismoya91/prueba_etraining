@@ -18,7 +18,7 @@ class CreateCarpetasTable extends Migration
             $table->string('nombre');
             $table->string('ruta')->nullable();
             $table->string('peso')->nullable();
-            $table->boolean('activo');
+            $table->boolean('activo')->default(1);
             $table->timestamps();
         });
     }
