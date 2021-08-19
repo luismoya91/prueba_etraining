@@ -4,7 +4,7 @@ import Swal from 'sweetalert2'
 (function($){
 	$.fn.getAllCarpetas = function(tabla,accion = "carpetas") {
 		$.ajax({
-            url: "https://localhost/prueba_etraining/public/api/" + accion,
+            url: "http://localhost/prueba_etraining/public/api/" + accion,
             type: "GET",
             data: {
                 api_key: '$2y$10$LRyUsiLNnQQzuo8t9lkJlukE5SXisBS7wW5v7.8s4HJlqAaT3aWMO', 
@@ -26,7 +26,7 @@ import Swal from 'sweetalert2'
         var tabla = "detalles_tabla";
         var tipo = subcarpeta === false ? "carpetas" : "subcarpetas";
 		$.ajax({
-            url: "https://localhost/prueba_etraining/public/api/"+tipo+"/"+id,
+            url: "http://localhost/prueba_etraining/public/api/"+tipo+"/"+id,
             type: "GET",
             data: {
                 api_key: '$2y$10$LRyUsiLNnQQzuo8t9lkJlukE5SXisBS7wW5v7.8s4HJlqAaT3aWMO', 
@@ -295,7 +295,7 @@ import Swal from 'sweetalert2'
         $('#btn-crear').on('click',function(){
             var data_Form = $('#crear_carpeta').serializeArray();
             $.ajax({
-                url: "https://localhost/prueba_etraining/public/api/" + data_Form[1].value,
+                url: "http://localhost/prueba_etraining/public/api/" + data_Form[1].value,
                 type: "POST",
                 data: {
                     api_key: '$2y$10$LRyUsiLNnQQzuo8t9lkJlukE5SXisBS7wW5v7.8s4HJlqAaT3aWMO', 
@@ -353,7 +353,7 @@ import Swal from 'sweetalert2'
             var id_carpeta = id;
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "https://localhost/prueba_etraining/public/api/"+tipo+"/"+id_carpeta,
+                    url: "http://localhost/prueba_etraining/public/api/"+tipo+"/"+id_carpeta,
                     type: "DELETE",
                     data: {
                         api_key: '$2y$10$LRyUsiLNnQQzuo8t9lkJlukE5SXisBS7wW5v7.8s4HJlqAaT3aWMO', 
@@ -382,9 +382,13 @@ import Swal from 'sweetalert2'
 
 })(jQuery);
 
-if(window.location.href === "https://localhost/prueba_etraining/public/home" || window.location.href === "http://localhost/prueba_etraining/public/home"){
-    $.fn.getAllCarpetas("carpetas_list");
-    $.fn.getAllCarpetas("subcarpetas_list","subcarpetas");
-    $.fn.setActionAddCarpeta();
+if(window.location.protocol === "http:"){
+    if(window.location.href === "http://localhost/prueba_etraining/public/home"){
+        $.fn.getAllCarpetas("carpetas_list");
+        $.fn.getAllCarpetas("subcarpetas_list","subcarpetas");
+        $.fn.setActionAddCarpeta();
+    }
+}else{
+      location.href = location.href.replace("https://", "http://");
 }
 
