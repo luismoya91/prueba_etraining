@@ -318,7 +318,7 @@ import Swal from 'sweetalert2'
         $('#btn-edit').on('click',function(id){
             var data_Form = $('#edit_carpeta').serializeArray();
             $.ajax({
-                url: "https://localhost/prueba_etraining/public/api/"+tipo+"/" + data_Form[0].value,
+                url: "http://localhost/prueba_etraining/public/api/"+tipo+"/" + data_Form[0].value,
                 type: "PUT",
                 data: {
                     api_key: '$2y$10$LRyUsiLNnQQzuo8t9lkJlukE5SXisBS7wW5v7.8s4HJlqAaT3aWMO', 
