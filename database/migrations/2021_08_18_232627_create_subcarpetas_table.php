@@ -18,7 +18,7 @@ class CreateSubcarpetasTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('ruta')->nullable();
-            $table->boolean('activo')->nullable();
+            $table->boolean('activo')->default(1);
             $table->foreignIdFor(Carpeta::class);
             $table->timestamps();
         });
