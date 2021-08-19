@@ -305,8 +305,18 @@ import Swal from 'sweetalert2'
                 },
                 dataType: "json",
             }).done(function(result) {
-                $.fn.getAllCarpetas("carpetas_list");
-                $.fn.getAllCarpetas("subcarpetas_list","subcarpetas");
+                if(result.status){
+                    $.fn.getAllCarpetas("carpetas_list");
+                    $.fn.getAllCarpetas("subcarpetas_list","subcarpetas");
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        text: result.mensaje,
+                        showCancelButton: false,
+                        confirmButtonText: 'Aceptar',
+                        confirmButtonColor: '#e3342f',
+                    });
+                }
                 $('#ModalDetalle').modal('hide');
             }).fail(function(error) {
                 alert( "error" );
